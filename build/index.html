@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Site</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./home.css" />
+</head>
+<body>
+
+      <div class="wrapper">
+          <nav class="main-nav">
+            <ul>
+              <li class="logo"><a href="#" ><img src="./img/logo.svg" alt=""></a></li>
+              <li class="cart"><a href="#" ><i class="fas fa-shopping-cart fa-2x"></i></a></li>
+            </ul>
+          </nav>
+          <section class="main">
+            <div class="main-content">
+                <div class="form">
+                    <form action="post" class="info">
+                          <label for="city">City</label>
+                          <label for="meal">Meal</label>
+                          <select name="city" id="city">
+                              <option value="" disabled selected hidden>Please Choose a City...</option>
+                          </select>
+                          <select name="meal" id="meal">
+                              <option value="" disabled selected hidden>Please Choose a Meal...</option>
+                          </select>
+                          <label for="search" class="search-label" >Search</label>
+                          <input type="search" placeholder="Search..." class="search">
+                    </form>
+                  </div>
+                  <div class="content">
+                    <h1>Main title<br>of the<br>web site</h1>
+                    <p>Description of the website used to order food form restaurants</p>
+                    <a href="#" class="btn btn-restaurant">Restaurant List</a>
+                  </div>
+            </div>
+          </section>
+  </div>
+</body>
+</html>
