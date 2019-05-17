@@ -37,10 +37,29 @@ body {
     height: 100vh;
     display: grid;
     grid-template-rows:  [row1-start] 10px  [row2-start] 25% [row2-end] auto [end-row] 10px [end];
-    grid-template-columns:  [col1-start] 40px  [col2-start] 10% [col3-start] 5% [col4-start] 5% [col5-start] auto [col5-end] 5% [col5-start] 5% [end-col] 40px;
+    grid-template-columns:  [col1-start] 40px  [col2-start] 10% [col3-start] 5% [col4-start] 5% [col5-start] auto [col5-end] 5% [col6-start] 5% [end-col] 40px;
 }
 
-/* Navigation */
+/* Logo */
+.logo-div {
+    grid-column-start: col1-start;
+    grid-column-end: col4-start;
+    grid-row-start: row2-start;
+    grid-row-end: row2-end;
+    text-align: center;
+}
+/* Cart */
+.cart-div {
+    grid-column-start: col6-start;
+    grid-column-end: end-col;
+    grid-row-start: row2-start;
+    grid-row-end: row2-end;
+}
+
+.cart-div a {
+    color: var(--dark);
+}
+/* Navigation
 .main-nav {
     grid-row-start: row2-start;
     grid-column-start: col2-start;
@@ -61,7 +80,7 @@ body {
 .main-nav ul li a {
     color: #000;
     text-decoration: none;
-}
+} */
 
 /* Main content */
 .main {
