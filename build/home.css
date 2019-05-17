@@ -100,7 +100,16 @@ body {
 .content p {
     margin: 0;
     font-size: 32px;
+    
 }
+
+.content div {
+    margin-top: 63px;
+
+    
+}
+
+
 .selecter-div {
     display: grid;  
 }
