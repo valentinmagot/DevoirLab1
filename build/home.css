@@ -25,27 +25,25 @@ body {
     grid-template-columns:  [col1-start] 40px  [col2-start] 10% [col3-start] 5% [col4-start] auto [col4-end] 5% [col5-start] 10% [end-col] 40px;
 }
 
-/* Navigation */
-.main-nav {
+/* Logo */
+.logo-div {
+    grid-column-start: col1-start;
+    grid-column-end: col4-start;
     grid-row-start: row2-start;
-    grid-column-start: col2-start;
+    grid-row-end: row2-end;
+    text-align: center;
+}
+/* Cart */
+.cart-div {
+    grid-column-start: col5-start;
     grid-column-end: end-col;
+    grid-row-start: row2-start;
+    grid-row-end: row2-end;
+    text-align: center;
 }
 
-.main-nav ul{
-    margin: 0;
-    list-style: none;
-    padding: 0;
-    display: flex;
-}
-
-.main-nav ul li:first-child {
-    margin-right: auto;
-}
-
-.main-nav ul li a {
-    color: #000;
-    text-decoration: none;
+.cart-div a {
+    color: var(--dark);
 }
 
 /* Main content */
