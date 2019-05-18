@@ -27,7 +27,7 @@ body {
     
 }
 
-.btn-restaurant:hover{
+.btn-menu:hover{
     background: var(--light);
     color: var(--dark);
 }
@@ -74,12 +74,83 @@ body {
     margin-left: auto;
     margin-right: auto;
     background: #6d6d6d2f;
-    box-shadow: var(--shadow)
+    box-shadow: var(--shadow);
   
 }
 
-/* List View */
+.main-content {
+    height: 100%;
+    display: grid;
+    grid-template-columns: [col1-start] 10% [col2-start] auto [col2-end] 10%;
+    grid-template-rows: [row1-start] 3% [row2-start] 10% [row3-start] 30% [row4-start] 10% [row5-start] auto [row6-start] 10% [row6-end] 3%;
+}
 
+/* Restaurant name */
+.restaurant-name {
+    grid-column-start: col2-start;
+    grid-column-end: col2-end;
+    grid-row-start: row2-start;
+    grid-row-end: row3-start;
+    text-align: center;
+    color:  var(--light);
+
+}
+.restaurant-name h1{
+    margin: 0;
+}
+
+/* Restaurant Image */
+.restaurant-img {
+    grid-column-start: col2-start;
+    grid-column-end: col2-end;
+    grid-row-start: row3-start;
+    grid-row-end: row4-start;
+    height: 90%;
+    width: 100%;
+    background: var(--dark);
+
+}
+
+/* Reataurant Ratind */
+.restaurant-score {
+
+    grid-column-start: col2-start;
+    grid-column-end: col2-end;
+    grid-row-start: row4-start;
+    grid-row-end: row5-start;
+    text-align: center;
+
+}
+
+.restaurant-score h3{
+
+    margin-top:20px;
+    margin-bottom: 0;
+
+}
+
+/* Info */
+.info {
+
+    grid-column-start: col2-start;
+    grid-column-end: col2-end;
+    grid-row-start: row5-start;
+    grid-row-end: row6-start;
+
+}
+
+/* Buttons Div */
+.btn-div {
+
+    grid-column-start: col2-start;
+    grid-column-end: col2-end;
+    grid-row-start: row6-start;
+    grid-row-end: row6-end;
+    text-align: center;
+
+}
+
+/* List View */
 .list {
     display: grid;
     grid-template-rows:  [row1-start] 10px  [row2-start] 25% [row2-end] auto [end-row] 10px [end];
