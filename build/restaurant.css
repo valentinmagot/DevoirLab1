@@ -146,7 +146,7 @@ body {
     grid-column-end: col2-end;
     grid-row-start: row6-start;
     grid-row-end: row6-end;
-    text-align: center;
+    margin: auto;
 
 }
 
