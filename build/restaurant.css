@@ -54,33 +54,12 @@ body {
     grid-column-end: end-col;
     grid-row-start: row2-start;
     grid-row-end: row2-end;
+    text-align: center;
 }
 
 .cart-div a {
     color: var(--dark);
 }
-/* Navigation
-.main-nav {
-    grid-row-start: row2-start;
-    grid-column-start: col2-start;
-    grid-column-end: end-col;
-}
-
-.main-nav ul{
-    margin: 0;
-    list-style: none;
-    padding: 0;
-    display: flex;
-}
-
-.main-nav ul li:first-child {
-    margin-right: auto;
-}
-
-.main-nav ul li a {
-    color: #000;
-    text-decoration: none;
-} */
 
 /* Main content */
 .main {
