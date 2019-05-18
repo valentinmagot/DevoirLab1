@@ -77,10 +77,18 @@ body {
     box-shadow: var(--shadow);
   
 }
+
+.main-content {
+    height: 100%;
+    display: grid;
+    grid-template-columns: [col1-start] 10% [col2-start] auto [col2-end] 10%;
+    grid-template-rows: [row1-start] 3% [row2-start] 10% [row3-start] 30% [row4-start] 10% [row5-start] auto [row6-start] 10% [row6-end] 3%;
+}
+
 /* List View */
 .list {
     display: grid;
-    grid-template-rows:  [row1-start] 10px  [row2-start] 25% [row2-end] auto [end-row] 10px [end];
+    grid-template-rows:  [row1-start] 10px  [row2-start] 25% [row3-start] 20% [row4-start] auto [row5-start] 20% [row5-end] 10px [end];
     grid-row-start: row1-start;
     grid-column-start: col1-start;
     grid-column-end: col4-start;
@@ -90,24 +98,134 @@ body {
     text-align: center;
 }
 
-.list-content {
-    grid-row-start: row2-end;
+/* Appertizers content */
+.appertizers-content {
+    /* display: flex;
+    align-items: center; */
+    grid-row-start: row3-start;
+    grid-row-end: row4-start;
     overflow: auto;
+    border-top:1px solid #000;
 }
 
-.list-content ul{
+.appertizers-content ul{
     margin: 0;
     padding: 0;
     list-style: none;
 }
-.list-content li{
-    margin: 50px 10px;
+.appertizers-content li{
+    margin: 10px 10px;
 }
 
-.list-content li a {
+.appertizers-content li a {
     
     border-bottom: #000;
     /* border-style: solid; */
     color: var(--dark);
     text-decoration: none;
+}
+
+/* Main course content */
+.maincourse-content {
+    grid-row-start: row4-start;
+    grid-row-end: row5-start;
+    overflow: auto;
+    border-top:1px solid #000;
+}
+
+.maincourse-content ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.maincourse-content li{
+    margin: 10px 10px;
+}
+
+.maincourse-content li a {
+    
+    border-bottom: #000;
+    /* border-style: solid; */
+    color: var(--dark);
+    text-decoration: none;
+}
+
+/* Dessert content */
+.dessert-content {
+    grid-row-start: row5-start;
+    grid-row-end: row5-end;
+    overflow: auto;
+    border-top:1px solid #000;
+    border-bottom:1px solid #000;
+}
+
+.dessert-content ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.dessert-content li{
+    margin: 10px 10px;
+}
+
+.dessert-content li a {
+    
+    border-bottom: #000;
+    color: var(--dark);
+    text-decoration: none;
+}
+
+
+/* Buttons Div */
+.btn-div {
+
+    grid-column-start: col2-start;
+    grid-column-end: col2-end;
+    grid-row-start: row6-start;
+    grid-row-end: row6-end;
+    margin: auto;
+
+}
+
+/* Meal name */
+.meal-name {
+    grid-column-start: col2-start;
+    grid-column-end: col2-end;
+    grid-row-start: row2-start;
+    grid-row-end: row3-start;
+    text-align: center;
+    color:  var(--light);
+
+}
+
+.meal-img {
+    grid-column-start: col2-start;
+    grid-column-end: col2-end;
+    grid-row-start: row3-start;
+    grid-row-end: row4-start;
+    height: 90%;
+    width: 100%;
+    background: var(--dark);
+}
+
+/* Meal Description */
+.meal-des {
+
+    grid-column-start: col2-start;
+    grid-column-end: col2-end;
+    grid-row-start: row4-start;
+    grid-row-end: row5-start;
+    text-align: center;
+
+}
+
+/* Price of the meal */
+.meal-price {
+    grid-column-start: col2-start;
+    grid-column-end: col2-end;
+    grid-row-start: row5-start;
+    grid-row-end: row6-start;
+    display: flex;
+    align-items: center;
+    margin: auto;
 }
