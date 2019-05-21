@@ -19,12 +19,16 @@
                     <form action="post" class="info">
                           <label for="city">City</label>
                           <label for="meal">Meal</label>
-                          <select name="city" id="city">
+                          <div class="cityselect">
+                            <select  name="city" id="city">
                               <option value="" disabled selected hidden>Please Choose a City...</option>
                           </select>
-                          <select name="meal" id="meal">
+                          </div>
+                          <div class="mealselect">
+                            <select name="meal" id="meal">
                               <option value="" disabled selected hidden>Please Choose a Meal...</option>
                           </select>
+                          </div>
                           <label for="search" class="search-label" >Search</label>
                           <input type="search" placeholder="Search..." class="search">
                     </form>
