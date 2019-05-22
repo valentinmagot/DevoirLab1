@@ -20,7 +20,6 @@ html {
 body {
     background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(./img/clay-banks-1554997-unsplash.jpg);
     background-position: center;
-    background-repeat: no-repeat;
     background-size: cover;
     position: relative;
     margin: 0;
@@ -151,7 +150,7 @@ label {
     background: var(--extralight);
     color: black;
     border: #333 2px solid;
-    border-radius: 25px;
+    border-radius: 5px;
     display: flex;
     align-items: center;
 }
@@ -167,7 +166,7 @@ label {
     background: var(--extralight);
     color: black;
     border: #333 2px solid;
-    border-radius: 25px;
+    border-radius: 5px;
     display: flex;
     align-items: center;
 }
@@ -183,7 +182,7 @@ input[type="search" i] {
     background: var(--extralight);
     padding: 6px;
     color: black;
-    border-radius: 25px;
+    border-radius: 5px;
     border: #333 2px solid;
 }
 

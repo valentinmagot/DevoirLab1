@@ -19,7 +19,6 @@ html {
 body {
     background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(./img/clay-banks-1554997-unsplash.jpg);
     background-position: center;
-    background-repeat: no-repeat;
     background-size: cover;
     position: relative;
     margin: 0;
@@ -103,6 +102,7 @@ body {
     grid-row-end: row3-start;
     text-align: center;
     color:  var(--light);
+    font-weight: bold;
 
 }
 .restaurant-name h1{
@@ -149,7 +149,7 @@ body {
     grid-row-start: row5-start;
     grid-row-end: row6-start;
     color: var(--light);
-
+    font-family: "Times New Roman";
 }
 
 /* Buttons Div */
@@ -192,8 +192,7 @@ body {
 
 .list-content li a {
     
-    border-bottom: #000;
     /* border-style: solid; */
-    color: var(--dark);
+    color: white;
     text-decoration: none;
 }

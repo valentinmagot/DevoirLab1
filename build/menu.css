@@ -19,7 +19,6 @@ html {
 body {
     background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(./img/clay-banks-1554997-unsplash.jpg);
     background-position: center;
-    background-repeat: no-repeat;
     background-size: cover;
     position: relative;
     margin: 0;
@@ -95,6 +94,10 @@ body {
     grid-template-rows: [row1-start] 3% [row2-start] 10% [row3-start] 30% [row4-start] 10% [row5-start] auto [row6-start] 10% [row6-end] 3%;
     color: var(--light);
 }
+.meal-name h1 {
+    margin: 0;
+    color: var(--light);
+}
 
 /* List View */
 .list {
@@ -109,6 +112,10 @@ body {
     text-align: center;
 }
 
+.list h4{
+
+    color: var(--light);
+}
 /* Appertizers content */
 .appertizers-content {
     /* display: flex;
@@ -116,7 +123,7 @@ body {
     grid-row-start: row3-start;
     grid-row-end: row4-start;
     overflow: auto;
-    border-top:1px solid #000;
+    border-top:1px solid #fff;
 }
 
 .appertizers-content ul{
@@ -134,6 +141,8 @@ body {
     /* border-style: solid; */
     color: var(--dark);
     text-decoration: none;
+    font-weight: bold;
+
 }
 
 /* Main course content */
@@ -141,7 +150,7 @@ body {
     grid-row-start: row4-start;
     grid-row-end: row5-start;
     overflow: auto;
-    border-top:1px solid #000;
+    border-top:1px solid #fff;
 }
 
 .maincourse-content ul{
@@ -158,6 +167,7 @@ body {
     border-bottom: #000;
     /* border-style: solid; */
     color: var(--dark);
+    font-weight: bold;
     text-decoration: none;
 }
 
@@ -166,8 +176,7 @@ body {
     grid-row-start: row5-start;
     grid-row-end: row5-end;
     overflow: auto;
-    border-top:1px solid #000;
-    border-bottom:1px solid #000;
+    border-top:1px solid #fff;
 }
 
 .dessert-content ul{
@@ -184,6 +193,8 @@ body {
     border-bottom: #000;
     color: var(--dark);
     text-decoration: none;
+    font-weight: bold;
+
 }
 
 
@@ -205,7 +216,7 @@ body {
     grid-row-start: row2-start;
     grid-row-end: row3-start;
     text-align: center;
-    color:  var(--light);
+    color:  #000;
 
 }
 
@@ -217,6 +228,7 @@ body {
     height: 90%;
     width: 100%;
     background: var(--dark);
+
 }
 
 /* Meal Description */
