@@ -3,7 +3,9 @@
     --primary: #ddd;
     --dark: #333;
     --light: #fff;
-    --shadow: 0 1px 5px rgba(104, 104, 104, 0.8)
+    --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+    --shadow2: 0 1px 5px rgba(0, 0, 0, 0.8);
+    --extralight: rgba(255, 255, 255, 0.5);
     --bg: #261F1F;
     --btnbg: #F7B277;
     --btnbghover: #FCD0AB;
@@ -15,8 +17,12 @@ html {
 }
 
 body {
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(./img/clay-banks-1554997-unsplash.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
     margin: 0;
-    background: #ccc;
     line-height: 1.4;
 }
 
@@ -59,8 +65,8 @@ body {
     right: 0;
     margin-left: auto;
     margin-right: auto;
-    background: #6d6d6d2f;
-    box-shadow: var(--shadow)
+    background: rgba(38, 31, 31, 0.75);
+    box-shadow: var(--shadow2)
   
 }
 
@@ -69,6 +75,7 @@ body {
     display: grid;
     grid-template-columns: [col1-start] 10% [col2-start] auto [col2-end] 10%;
     grid-template-rows: [row1-start] 3% [row2-start] 10% [row3-start] 5% [row4-start] 30% [row5-start] 5% [row5-end]auto [row6-start] 10% [row6-end] 3%;
+    color: var(--light);
 }
 
 /* Boutons */
@@ -80,11 +87,12 @@ body {
     padding: 0.6rem 1.3rem;
     border-radius: 50px;
     border: #fff 2px solid;
+    font-size: 16px;
     
 }
 
-.btn-order:hover,
-.btn-order:focus {
+.btn-confirm:hover,
+.btn-confirm:focus {
     cursor: pointer;
     background: var(--btnbghover);
 
@@ -165,11 +173,7 @@ body {
     margin: 5px;
 }
 .totalprice {
-    background: var(--extralight);
-    padding: 4px;
-    color: black;
-    border-radius: 25px;
-    border: #333 2px solid;
+    text-align: right;
     margin: 5px;
 }
 .cc-label {

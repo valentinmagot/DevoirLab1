@@ -3,7 +3,12 @@
     --primary: #ddd;
     --dark: #333;
     --light: #fff;
-    --shadow: 0 1px 5px rgba(104, 104, 104, 0.8)
+    --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+    --shadow2: 0 1px 5px rgba(0, 0, 0, 0.8);
+    --extralight: rgba(255, 255, 255, 0.5);
+    --bg: #261F1F;
+    --btnbg: #F7B277;
+    --btnbghover: #FCD0AB;
 }
 
 html {
@@ -12,24 +17,28 @@ html {
 }
 
 body {
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(./img/clay-banks-1554997-unsplash.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
     margin: 0;
-    background: #ccc;
     line-height: 1.4;
 }
 /* Boutons */
 .btn{
     text-decoration: none;
-    background: var(--dark);
+    background: var(--btnbg);
     color: var(--light);
     text-align: center;
     padding: 0.6rem 1.3rem;
     border-radius: 50px;
+    border: #fff 2px solid;
     
 }
 
-.btn-order:hover{
-    background: var(--light);
-    color: var(--dark);
+.btn-cart:hover{
+    background: var(--btnbghover);
 }
 
 /* CSS-Grid */
@@ -47,6 +56,7 @@ body {
     grid-row-start: row2-start;
     grid-row-end: row2-end;
     text-align: center;
+    z-index: 1;
 }
 /* Cart */
 .cart-div {
@@ -73,8 +83,8 @@ body {
     right: 0;
     margin-left: auto;
     margin-right: auto;
-    background: #6d6d6d2f;
-    box-shadow: var(--shadow);
+    background: rgba(38, 31, 31, 0.75);
+    box-shadow: var(--shadow2);
   
 }
 
@@ -83,6 +93,7 @@ body {
     display: grid;
     grid-template-columns: [col1-start] 10% [col2-start] auto [col2-end] 10%;
     grid-template-rows: [row1-start] 3% [row2-start] 10% [row3-start] 30% [row4-start] 10% [row5-start] auto [row6-start] 10% [row6-end] 3%;
+    color: var(--light);
 }
 
 /* List View */
@@ -93,8 +104,8 @@ body {
     grid-column-start: col1-start;
     grid-column-end: col4-start;
     grid-row-end: end;
-    background: #6d6d6d2f;
-    box-shadow: var(--shadow);
+    background:var(--btnbg);
+    box-shadow: var(--shadow2);
     text-align: center;
 }
 
