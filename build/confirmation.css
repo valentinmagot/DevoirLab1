@@ -168,6 +168,10 @@ body {
     
 }
 
+.pay-info input::placeholder {
+    color: var(--dark);
+}
+
 .price-label {
     font-size: 12px;
     margin: 5px;
