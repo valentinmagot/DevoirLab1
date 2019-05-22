@@ -129,6 +129,7 @@ body {
 
 /* Payement */
 .payement-label {
+    
     grid-column-start: col2-start;
     grid-column-end: col2-end;
     grid-row-start: row5-start;
@@ -142,13 +143,76 @@ body {
 
 /* Payement info */
 .payement-info {
-
+    max-height: 100%;
     grid-column-start: col2-start;
     grid-column-end: col2-end;
     grid-row-start: row5-end;
     grid-row-end: row6-start;
     text-align: left;
     overflow: auto;
+}
+
+.pay-info {
+
+    display: grid;
+    grid-template-columns: [col1] 25% [col2] 75%;
+    grid-auto-rows: [row1] 25% [row2] 25% [row3] 25% [row4] 25%;
+    
+}
+
+.price-label {
+    font-size: 12px;
+    margin: 5px;
+}
+.totalprice {
+    background: var(--extralight);
+    padding: 4px;
+    color: black;
+    border-radius: 25px;
+    border: #333 2px solid;
+    margin: 5px;
+}
+.cc-label {
+    font-size: 12px;
+    margin: 5px;
+}
+
+.cc {
+    background: var(--extralight);
+    padding: 4px;
+    color: black;
+    border-radius: 25px;
+    border: #333 2px solid;
+    margin: 5px;
+}
+
+.exp-label {
+    font-size: 12px;
+    margin: 5px;
+}
+
+.exp {
+    background: var(--extralight);
+    padding: 4px;
+    color: black;
+    border-radius: 25px;
+    border: #333 2px solid;
+    margin: 5px;
+}
+
+
+.cvc {
+    background: var(--extralight);
+    padding: 4px;
+    color: black;
+    border-radius: 25px;
+    border: #333 2px solid;
+    margin: 5px;
+}
+
+.cvc-label {
+    font-size: 12px;
+    margin: 5px;
 }
 
 /* Delivery information */
@@ -162,13 +226,14 @@ body {
 .food-info {
     display: grid;
     grid-template-columns: [col1] 25% [col2] 75%;
-    grid-auto-rows: [row1] 20% [row2] 20% [row3] 20% [row4] 20% [row5]
+    grid-auto-rows: [row1] 20% [row2] 20% [row3] 20% [row4] 20% [row5];
 }
 
 .food-info label {
     grid-column-start: col1;
     grid-column-end: col2;
     float: left;
+    margin: 5px;
     
 }
  
@@ -176,5 +241,23 @@ body {
     float: right;
     width: 100%;
     min-width: 100px;
+    background: var(--extralight);
+    padding: 6px;
+    color: black;
+    border-radius: 25px;
+    border: #333 2px solid;
+    margin: 5px;
 }
+
+.food-info p {
+    text-align: right;
+    float: right;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.food-info input::placeholder {
+    color: var(--dark);
+}
+
  
