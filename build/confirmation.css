@@ -4,6 +4,9 @@
     --dark: #333;
     --light: #fff;
     --shadow: 0 1px 5px rgba(104, 104, 104, 0.8)
+    --bg: #261F1F;
+    --btnbg: #F7B277;
+    --btnbghover: #FCD0AB;
 }
 
 html {
@@ -71,17 +74,31 @@ body {
 /* Boutons */
 .btn{
     text-decoration: none;
-    background: var(--dark);
+    background: var(--btnbg);
     color: var(--light);
     text-align: center;
     padding: 0.6rem 1.3rem;
     border-radius: 50px;
+    border: #fff 2px solid;
     
 }
 
-.btn-chekout:hover{
-    background: var(--light);
-    color: var(--dark);
+.btn-order:hover,
+.btn-order:focus {
+    cursor: pointer;
+    background: var(--btnbghover);
+
+}
+
+/* Buttons Div */
+.btn-div {
+
+    grid-column-start: col2-start;
+    grid-column-end: col2-end;
+    grid-row-start: row6-start;
+    grid-row-end: row6-end;
+    margin: auto;
+
 }
 
 /* Title of the page */
@@ -106,32 +123,11 @@ body {
     text-align: center;
 }
 
-/* Items Label */
-.info-label h3 {
+.info-label h3{
     margin: 0;
 }
 
-/* Items list */
-.list {
-
-    grid-column-start: col2-start;
-    grid-column-end: col2-end;
-    grid-row-start: row4-start;
-    grid-row-end: row5-start;
-    text-align: center;
-    overflow: auto;
-}
-
-.list ul {
-    margin: 0;
-    padding: 0;
-}
-
-.list li {
-    margin: 0;
-    list-style: none;
-}
-
+/* Payement */
 .payement-label {
     grid-column-start: col2-start;
     grid-column-end: col2-end;
@@ -144,7 +140,7 @@ body {
     margin: 0;
 }
 
-/* Oder info */
+/* Payement info */
 .payement-info {
 
     grid-column-start: col2-start;
@@ -155,24 +151,30 @@ body {
     overflow: auto;
 }
 
-/* Buttons Div */
-.btn-div {
-
-    grid-column-start: col2-start;
-    grid-column-end: col2-end;
-    grid-row-start: row6-start;
-    grid-row-end: row6-end;
-    margin: auto;
-
-}
-
 /* Delivery information */
 .information {
-    /* display: table; */
     grid-column-start: col2-start;
     grid-column-end: col2-end;
     grid-row-start: row4-start;
     grid-row-end: row5-start;
-
-
 }
+
+.food-info {
+    display: grid;
+    grid-template-columns: [col1] 25% [col2] 75%;
+    grid-auto-rows: [row1] 20% [row2] 20% [row3] 20% [row4] 20% [row5]
+}
+
+.food-info label {
+    grid-column-start: col1;
+    grid-column-end: col2;
+    float: left;
+    
+}
+ 
+.food-info input {
+    float: right;
+    width: 100%;
+    min-width: 100px;
+}
+ 

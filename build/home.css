@@ -141,6 +141,7 @@ body {
 .btn-restaurant:hover,
 .btn-restaurant:focus {
     background: var(--btnbghover);
+    cursor: pointer;
 
 }
 
