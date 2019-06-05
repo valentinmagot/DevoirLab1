@@ -71,10 +71,10 @@
               
               
           });
-
+              tvh = totalprice * (tvh-1);
               this.$orderItems.html("Total number of items: "+totalitems);
               this.$orderTotal.html("Total price of items: "+totalprice.toFixed(2)+"$");
-              this.$orderTVH.html("TVH: "+ tvh);
+              this.$orderTVH.html("TVH: "+ tvh.toFixed(2));
               this.$orderTotalPrice.html(`Total price: ${total.toFixed(2)}$`);
               console.log(totalitems, totalprice.toFixed(2), total.toFixed(2));
       }
