@@ -17,35 +17,19 @@
                 <div class="appertizers-content">
                     <h4 style="margin:0;">Appertizers</h4>
                     <ul class="app-list">
-                       <!-- <li><a href="#">Item 1</a></li>
-                       <li><a href="#">Item 2</a></li>
-                       <li><a href="#">Item 3</a></li>
-                       <li><a href="#">Item 4</a></li>
-                       <li><a href="#">Item 5</a></li> -->
+                       
                     </ul>
                 </div>
                 <div class="maincourse-content">
                         <h4 style="margin:0;">Main Course</h4>
                         <ul class="mains-list">
-                           <!-- <li><a href="#">Item 1</a></li>
-                           <li><a href="#">Item 1</a></li>
-                           <li><a href="#">Item 2</a></li>
-                           <li><a href="#">Item 3</a></li>
-                           <li><a href="#">Item 4</a></li>
-                           <li><a href="#">Item 5</a></li>
-                           <li><a href="#">Item 6</a></li>
-                           <li><a href="#">Item 7</a></li> -->
+                          
                         </ul>
                     </div>
                     <div class="dessert-content">
                             <h4 style="margin:0;">Dessert</h4>
                             <ul class="dess-list">
-                               <!-- <li><a href="#">Item 1</a></li>
-                               <li><a href="#">Item 1</a></li>
-                               <li><a href="#">Item 2</a></li>
-                               <li><a href="#">Item 3</a></li>
-                               <li><a href="#">Item 4</a></li>
-                               <li><a href="#">Item 5</a></li> -->
+                               
                             </ul>
                         </div>
             </section>
@@ -68,6 +52,7 @@
             </div>
           </section>
   </div>
+  <div id="snackbar">Some text...</div>
   <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
   <script>
     let restaurant_list = getResto();
@@ -123,11 +108,19 @@
         
 
         console.log(name, price);
-        addToOrder(name, price);
+        let result = addToOrder(name, price)? snackbarFunction("Item Added to cart") : snackbarFunction("Error occured");
         let order = getOrder();
         console.log(order);
       }
     })
+
+    //Snackbar Function
+    function snackbarFunction(str) {
+                var snackbar = document.getElementById("snackbar");
+                snackbar.innerHTML = str;
+                snackbar.className = "show";
+                setTimeout(function(){ snackbar.className = snackbar.className.replace("show", ""); }, 3000);
+        }
 
     function addToOrder( itemname, itemprice){
       var result="";
