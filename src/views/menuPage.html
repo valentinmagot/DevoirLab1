@@ -16,36 +16,36 @@
          <section class="list">
                 <div class="appertizers-content">
                     <h4 style="margin:0;">Appertizers</h4>
-                    <ul>
-                       <li><a href="#">Item 1</a></li>
+                    <ul class="app-list">
+                       <!-- <li><a href="#">Item 1</a></li>
                        <li><a href="#">Item 2</a></li>
                        <li><a href="#">Item 3</a></li>
                        <li><a href="#">Item 4</a></li>
-                       <li><a href="#">Item 5</a></li>
+                       <li><a href="#">Item 5</a></li> -->
                     </ul>
                 </div>
                 <div class="maincourse-content">
                         <h4 style="margin:0;">Main Course</h4>
-                        <ul>
-                           <li><a href="#">Item 1</a></li>
+                        <ul class="mains-list">
+                           <!-- <li><a href="#">Item 1</a></li>
                            <li><a href="#">Item 1</a></li>
                            <li><a href="#">Item 2</a></li>
                            <li><a href="#">Item 3</a></li>
                            <li><a href="#">Item 4</a></li>
                            <li><a href="#">Item 5</a></li>
                            <li><a href="#">Item 6</a></li>
-                           <li><a href="#">Item 7</a></li>
+                           <li><a href="#">Item 7</a></li> -->
                         </ul>
                     </div>
                     <div class="dessert-content">
                             <h4 style="margin:0;">Dessert</h4>
-                            <ul>
-                               <li><a href="#">Item 1</a></li>
+                            <ul class="dess-list">
+                               <!-- <li><a href="#">Item 1</a></li>
                                <li><a href="#">Item 1</a></li>
                                <li><a href="#">Item 2</a></li>
                                <li><a href="#">Item 3</a></li>
                                <li><a href="#">Item 4</a></li>
-                               <li><a href="#">Item 5</a></li>
+                               <li><a href="#">Item 5</a></li> -->
                             </ul>
                         </div>
             </section>
@@ -53,14 +53,14 @@
           <section class="main">
             <div class="main-content">
                     <div class="meal-name">
-                            <h1>Name of the meal</h1>
+                            <h1 class='name'>Name of the meal</h1>
                     </div>
                     <div class="meal-img"><img src="" alt=""></div>
                     <div class="meal-des">
-                        <h4>Description of the food with every thing in it.</h4>
+                        <h4 class='desc'>Description of the food with every thing in it.</h4>
                     </div>
                     <div class="meal-price">
-                        <h3>Price: 00.00$</h3>
+                        <h3 class="price">Price: 00.00$</h3>
                     </div>
                     <!-- Boutons -->
                     <div class="btn-div"><a href="#" class="btn btn-cart">Add to cart</a></div>
@@ -70,15 +70,128 @@
   </div>
   <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
   <script>
-    let restaurant = getSelectedRestaurant();
+    let restaurant_list = getResto();
+    let seleted_restaurant = getSelectedRestaurant();
+    let menu = getRestaurantMenu();
+    let appertizers = menu.appetizers;
+    let mains = menu.mains;
+    let desserts = menu.dessert;
+    this.$appertizersList = $('.app-list');
+    this.$mainsList = $('.mains-list');
+    this.$dessList = $('.dess-list');
 
-    console.log(restaurant);
+    this.$foodName = $('.name');
+    this.$foodPrice = $('.price');
+    this.$foodDesc = $('.desc');
+    
 
+    // <ul>
+    //                    <li><a href="#">Item 1</a></li>
+    //                    <li><a href="#">Item 2</a></li>
+    //                    <li><a href="#">Item 3</a></li>
+    //                    <li><a href="#">Item 4</a></li>
+    //                    <li><a href="#">Item 5</a></li>
+    //                 </ul>
+
+    console.log(restaurant_list);
+    console.log(menu);
+    console.log(appertizers);
+    console.log(mains);
+    console.log(desserts);
+    
+
+    $(document).ready(function(){
+      loadMenu();
+        
+      });
+
+    function loadMenu(){
+      let name;
+      appertizers.forEach(element => {
+        name = element.name;
+        this.$appertizersList.append("<li><a id='app' onclick='itemClicked(event.target.innerHTML, event.target.id)' style='cursor:pointer;'>"+name+"</a></li>")
+      });
+
+      mains.forEach(element => {
+        name = element.name;
+        this.$mainsList.append("<li><a id='main' onclick='itemClicked(event.target.innerHTML, event.target.id)' style='cursor:pointer;'>"+name+"</a></li>")
+      });
+
+      desserts.forEach(element => {
+        name = element.name;
+        this.$dessList.append("<li><a id='dess' onclick='itemClicked(event.target.innerHTML, event.target.id)' style='cursor:pointer;'>"+name+"</a></li>")
+      });
+    }
+
+    function itemClicked(foodname, foodid) {
+      let name = foodname;
+      let id = foodid;
+      let desc;
+      let price;
+
+      if(id === "app"){
+        appertizers.forEach(element => {
+          if(element.name === name){
+            desc = element.description;
+            price =element.price;
+          }
+        });
+        this.$foodName.html(name);
+        this.$foodDesc.html(desc);
+        this.$foodPrice.html(price);
+
+      }else if(id === "main"){
+        mains.forEach(element => {
+          if(element.name === name){
+            desc = element.description;
+            price =element.price;
+          }
+        });
+        this.$foodName.html(name);
+        this.$foodDesc.html(desc);
+        this.$foodPrice.html(price);
+      }else if(id === "dess" ){
+        desserts.forEach(element => {
+          if(element.name === name){
+            desc = element.description;
+            price =element.price;
+          }
+        });
+        this.$foodName.html(name);
+        this.$foodDesc.html(desc);
+        this.$foodPrice.html(price);
+      }
+
+      
+    }
     function getSelectedRestaurant (){
         var result="";
             $.ajax({
               method: "GET",
               url:"/home/getSelectedRestaurant",
+              async: false,  
+              success:function(data) {
+                result = data; 
+              }
+          });
+          return result;
+        }
+    function getRestaurantMenu (){
+      let menu = [];
+      console.log(seleted_restaurant);
+        restaurant_list.forEach(element => {
+          if(element.name === seleted_restaurant){
+            menu = element.menu;
+          }
+        });
+
+        return menu;
+    }
+    function getResto() {
+            var result="";
+            $.ajax({
+              method: "GET",
+              url:"/home/getRestaurants",
               async: false,  
               success:function(data) {
                 result = data; 

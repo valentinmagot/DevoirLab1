@@ -5,7 +5,7 @@
 // Test data
 // TODO: move this into a database
 
-let selected_restaurant = "This";
+let selected_restaurant = "";
 
 let citys = [
     "Toronto",
@@ -82,7 +82,26 @@ let restaurants = [
           {day:"Dimanche: ", hour:"11:00 am-11:00 pm"}
         ], 
         logo: "https://upload.wikimedia.org/wikipedia/en/c/c5/Nandos_logo.svg", 
-        menu: null,
+        menu: {
+            appetizers:[
+                {id: 0, name: "Garlic Bread", meal:"lunch, diner", description: "Stone-baked Portuguese roll smothered in garlic and herb spread.", price: "4.25$",  img: null },
+                {id: 1, name: "Hummus with PERi-PERi Drizzle", meal:"lunch, diner", description: "Tangy PERi-PERi infused oil poured over creamy hummus. Dig in with chunks of warm pita. ", price: "6.25", img: null },
+                {id: 2, name: "PERi-PERi Nuts", meal:"lunch, diner", description: "Almonds, cashews, macadamias - crunch with a punch. ", price: "4.25",  img: null},
+            ],
+            mains: [
+                {id: 0, name: "1/2 Chicken", meal:"lunch, diner", description: "First time at Nando's? Look no further than our signature 1/2 chicken. ", price: "14.45$",  img: null },
+                {id: 1, name: '1/4 Chicken – Breast', meal:"lunch, diner", description: "Succulent and saucy.", price: "11.85$", img: null },
+                {id: 2, name: "Double Skewers", meal:"lunch, diner", description: "Two skewers of marinated chicken tenders.", price: "11.85", img: null},
+                {id: 3, name: "Chicken Sandwich", meal:"lunch, diner", description: "Grilled chicken breast served with crispy leaf lettuce, tomato and PERinaise on a stone-baked Portuguese roll.", price: "11.25$", img: null },
+                {id: 4, name: 'Chicken Wrap', meal:"lunch, diner", description: "Grilled chicken tenders with leaf lettuce, tomato, cucumber, sweet chilli jam and our tangy cilantro yogurt.", price: "11.25$", img: null },
+            ],
+            dessert: [
+                {id: 0, name: "Naughty Natas", meal:"lunch, diner", description: "Traditional Portuguese custard tart",  price: '2.65$',   img: null },
+                {id: 1, name: "Nando's Kisses", meal:"lunch, diner", description: "Dark chocolate ice cream centered in milk chocolate ice cream, rolled in chocolate shavings",  price: "4.25$",   img: null },
+                {id: 2, name: "Chocolate Cake", meal:"lunch, diner", description: "Dark chocolate cake and chocolate fudge nestled between layers of decadent chocolate icing.",  price: "6.25$",   img: null },
+            ]
+
+        },
     },
     {   
         id: 1,
@@ -141,7 +160,26 @@ let restaurants = [
             {day:"Dimanche: ", hour:"11:00 am-11:00 pm"}
           ], 
         logo: "https://www.fnasafety.com/wp-content/uploads/2018/10/chipotle-mexican-grill-logo-png-transparent.png", 
-        menu: null,
+        menu: {
+            appetizers:[
+                {id: 0, name: "Garlic Bread", meal:"lunch, diner", description: "Stone-baked Portuguese roll smothered in garlic and herb spread.", price: "4.25$",  img: null },
+                {id: 1, name: "Hummus with PERi-PERi Drizzle", meal:"lunch, diner", description: "Tangy PERi-PERi infused oil poured over creamy hummus. Dig in with chunks of warm pita. ", price: "6.25", img: null },
+                {id: 2, name: "PERi-PERi Nuts", meal:"lunch, diner", description: "Almonds, cashews, macadamias - crunch with a punch. ", price: "4.25",  img: null},
+            ],
+            mains: [
+                {id: 0, name: "1/2 Chicken", meal:"lunch, diner", description: "First time at Nando's? Look no further than our signature 1/2 chicken. ", price: "14.45$",  img: null },
+                {id: 1, name: '1/4 Chicken – Breast', meal:"lunch, diner", description: "Succulent and saucy.", price: "11.85$", img: null },
+                {id: 2, name: "Double Skewers", meal:"lunch, diner", description: "Two skewers of marinated chicken tenders.", price: "11.85", img: null},
+                {id: 3, name: "Chicken Sandwich", meal:"lunch, diner", description: "Grilled chicken breast served with crispy leaf lettuce, tomato and PERinaise on a stone-baked Portuguese roll.", price: "11.25$", img: null },
+                {id: 4, name: 'Chicken Wrap', meal:"lunch, diner", description: "Grilled chicken tenders with leaf lettuce, tomato, cucumber, sweet chilli jam and our tangy cilantro yogurt.", price: "11.25$", img: null },
+            ],
+            dessert: [
+                {id: 0, name: "Naughty Natas", meal:"lunch, diner", description: "Traditional Portuguese custard tart",  price: '2.65$',   img: null },
+                {id: 1, name: "Nando's Kisses", meal:"lunch, diner", description: "Dark chocolate ice cream centered in milk chocolate ice cream, rolled in chocolate shavings",  price: "4.25$",   img: null },
+                {id: 2, name: "Chocolate Cake", meal:"lunch, diner", description: "Dark chocolate cake and chocolate fudge nestled between layers of decadent chocolate icing.",  price: "6.25$",   img: null },
+            ]
+
+        },
     },
     
 ];
