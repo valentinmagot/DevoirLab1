@@ -222,6 +222,11 @@ exports.getOrder = () => {
     return order;
 }
 
+exports.emptyOrder = () => {
+    order = [];
+    return true;
+}
+
 
 
 

@@ -49,3 +49,8 @@ exports.getOrder = () => {
     let result = home.getOrder();
     return json(result);
 }
+
+exports.emptyOrder = () => {
+    let result = home.emptyOrder();
+    return result;
+}

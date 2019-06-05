@@ -76,7 +76,7 @@ body {
     height: 100%;
     display: grid;
     grid-template-columns: [col1-start] 10% [col2-start] auto [col2-end] 10%;
-    grid-template-rows: [row1-start] 3% [row2-start] 10% [row3-start] 5% [row4-start] 30% [row5-start] auto [row6-start] 10% [row6-end] 3%;
+    grid-template-rows: [row1-start] 3% [row2-start] 10% [row3-start] 5% [row4-start] 30% [row-btn] 7% [row5-start] auto [row6-start] 10% [row6-end] 3%;
     color: var(--light);
 }
 
@@ -92,7 +92,7 @@ body {
     
 }
 
-.btn-chekout:hover{
+.btn:hover{
     background: var(--btnbghover);
 }
 
@@ -166,5 +166,15 @@ body {
     grid-row-start: row6-start;
     grid-row-end: row6-end;
     margin: auto;
+
+}
+
+/* Buttons Div */
+.btn-empty-div {
+    text-align: center;
+    grid-column-start: col2-start;
+    grid-column-end: col2-end;
+    grid-row-start: row-btn;
+    grid-row-end: row6-start;
 
 }
