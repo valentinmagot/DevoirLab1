@@ -243,14 +243,15 @@ body {
 
 }
 
-.meal-img {
+.start {
     grid-column-start: col2-start;
     grid-column-end: col2-end;
     grid-row-start: row3-start;
     grid-row-end: row4-start;
     height: 90%;
     width: 100%;
-    background: var(--dark);
+    text-align: center;
+    /* background: var(--dark); */
 
 }
 

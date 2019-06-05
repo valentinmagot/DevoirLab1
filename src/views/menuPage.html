@@ -37,17 +37,20 @@
           <section class="main">
             <div class="main-content">
                     <div class="meal-name">
-                            <h1 class='name'>Name of the meal</h1>
+                            <h1 class='name'>Pick a meal</h1>
                     </div>
                     <!-- <div class="meal-img"><img src="" alt=""></div> -->
+                    <div class="start"><i style="color:#F7B277;" class="fas fa-hand-point-left fa-4x"></i></div>
                     <div class="meal-des">
-                        <h4 class='desc'>Description of the food with every thing in it.</h4>
+                        
+
+                        <h4 class='desc'>Click on the food name that<br> you wish to order</h4>
                     </div>
                     <div class="meal-price">
-                        <h3 class="price">Price: 00.00$</h3>
+                        <h3 class="price"></h3>
                     </div>
                     <!-- Boutons -->
-                    <div class="btn-div"><a class="btn btn-cart">Add to cart</a></div>
+                    <div class="btn-div" hidden><a class="btn btn-cart">Add to cart</a></div>
                   
             </div>
           </section>
@@ -63,10 +66,10 @@
     let mains = menu.mains;
     let desserts = menu.dessert;
 
-      let name;
-      let id;
-      let desc;
-      let price;
+    let name;
+    let id;
+    let desc;
+    let price;
 
 
     this.$appertizersList = $('.app-list');
@@ -77,16 +80,13 @@
     this.$foodPrice = $('.price');
     this.$foodDesc = $('.desc');
 
+    this.$divbtn = $('.btn-div');
     this.$cartbtn = $('.btn-cart');
-    
 
-    // <ul>
-    //                    <li><a href="#">Item 1</a></li>
-    //                    <li><a href="#">Item 2</a></li>
-    //                    <li><a href="#">Item 3</a></li>
-    //                    <li><a href="#">Item 4</a></li>
-    //                    <li><a href="#">Item 5</a></li>
-    //                 </ul>
+    this.$startIcon = $('.start');
+    this.$desDiv = $('.meal-des')
+    
+    
 
     console.log(restaurant_list);
     console.log(menu);
@@ -153,8 +153,11 @@
         this.$dessList.append("<li><a id='dess' onclick='itemClicked(event.target.innerHTML, event.target.id)' style='cursor:pointer;'>"+name+"</a></li>")
       });
     }
-
+    
     function itemClicked(foodname, foodid) {
+        console.log(this.$startIcon);
+        this.$divbtn.show();
+        this.$startIcon.html('');
         name= foodname;
         id = foodid;
 
