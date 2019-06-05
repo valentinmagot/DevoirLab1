@@ -2,13 +2,15 @@
 <html lang="en">
 <head>
     <title>Site</title>
+    <!-- Font Awsome -->
     <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./home.css" />
+   <!-- Style sheet -->
+    <link rel="stylesheet" href="/css/home.css" />
 </head>
 <body>
       <div class="wrapper">
         <!-- LOGO -->
-        <div class="logo-div"><a href="./index.html"><img src="./img/logo.svg" alt=""></a></div>
+        <div class="logo-div"><a href="./home.html"><img src="/css/img/logo.svg" alt=""></a></div>
         <!-- CART -->
         <div class="cart-div"><a href="./orderSummary.html"><i class="fas fa-shopping-cart fa-2x"></i></a></div>
           <!-- Main content -->
@@ -20,12 +22,12 @@
                           <label for="city">City</label>
                           <label for="meal">Meal</label>
                           <div class="cityselect">
-                            <select  name="city" id="city">
-                              <option value="" disabled selected hidden>Please Choose a City...</option>
+                            <select  class="cityselecter" name="city" id="city">
+                              <option value="" >Please Choose a City...</option>
                           </select>
                           </div>
                           <div class="mealselect">
-                            <select name="meal" id="meal">
+                            <select class="mealselecter" name="meal" id="meal">
                               <option value="" disabled selected hidden>Please Choose a Meal...</option>
                           </select>
                           </div>
@@ -43,5 +45,37 @@
             </div>
           </section>
   </div>
+  <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+  <script>
+
+       let $cityselect, $mealselect;
+ 
+
+      $(document).ready(function(){
+        
+          $.get('/home/getCitys', function(data) {
+            // console.log(data);
+                let citys = data;
+
+                citys.forEach(element => {
+                  $('.cityselecter').append("<option value='"+element+"'>"+element+"</option>");
+                });
+            
+          })
+
+          $.get('/home/getMeals', function(data) {
+            // console.log(data);
+            let meals = data;
+
+            meals.forEach(element => {
+                  $('.mealselecter').append("<option value='"+element+"'>"+element+"</option>");
+                });
+            
+          })
+
+        });
+
+    </script>
+    
 </body>
 </html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Restaurant List</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="/css/restaurant.css" />
+</head>
+<body>
+      <div class="wrapper">
+
+        <!-- LOGO -->
+        <div class="logo-div"><a href="../views/home.html"><img src="/css/img/logo.svg" alt=""></a></div>
+        <!-- CART -->
+        <div class="cart-div"><a href="./orderSummary.html"><i class="fas fa-shopping-cart fa-2x"></i></a></div>
+          <!-- Restaurant List -->
+          <section class="list">
+              <div class="list-content">
+                  <ul class="list-restos">
+                    
+                  </ul>
+              </div>
+          </section>
+          <!-- Main content -->
+          <section class="main">
+            <div class="main-content">
+              <div class="restaurant-name">
+                  <h1 id="name" class="name">Pick a restaurant</h1>
+              </div>
+              <div class="restaurant-img"><img class="img" src="" alt=""></div>
+              <div class="restaurant-score">
+
+                  <i style="color:#F7B277;" class="fas fa-hand-point-left fa-4x"></i>
+
+                 <h3 class="score">Click on the restaurant name that<br> you wish to order from</h3>
+              </div>
+              <div class="info">
+                <div class="restaurant-info">
+                    <p id="add"></p>
+                    <p id="type"></p>
+                    <p id="min"></p>
+                    <p id="max"></p>
+                </div>
+                  <div class="hour-div">
+                      <div class="hour-div1">
+                        
+                        </div>
+                        <div class="hour-div2">
+      
+                        </div>
+                  </div>
+              </div>
+                <div class="btn-div" hidden><a href="./menuPage.html" class="btn btn-menu">View Menu</a></div>
+            </div>
+          </section>
+  </div>
+  <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+  <script >
+
+      let restaurant = getResto();
+      selectedRetaurant = getSelectedRestaurant();
+      console.log(selectedRetaurant);
+      // let selectedRetaurant = getSelectedRestaurant();
+      // console.log(selectedRetaurant);
+
+      this.$restoList = $('.list-restos');
+      this.$restoA = $('.list-resto');
+
+      this.$restoName = $('#name');
+      this.$restoType = $('#type');
+      this.$restoMin = $('#min');
+      this.$restoMax = $('#max');
+      this.$restaurantScore = $('.restaurant-score');
+      this.$restoScore = $('.score');
+      this.$restoinfo = $('.restaurant-info');
+      this.$restoimg = $('.img');
+      this.$restohour = $('.hour-div');
+      this.$restohour1 = $('.hour-div1');
+      this.$restohour2 = $('.hour-div2');
+      this.$btnDiv = $('.btn-div');
+      
+
+      $(document).ready(function(){
+        loadRestaurants();
+        
+      });
+
+      
+
+      this.$restoA.click(function(){
+        restoClick(event.target.innerHTML)
+      });
+
+      
+      function restoClick(rname, selectedRetaurant) {
+
+          this.$btnDiv.show();
+          
+          let name = rname;
+          let id;
+          let add;
+          let type;
+          let min;
+          let max;
+          let score;
+          let hours;
+          let img;
+
+
+          restaurant.forEach(element => {
+            if(element.name.includes(name)){
+                id =  element.id;
+                add = element.location;
+                type = element.typeOfFood;
+                min = element.min_price;
+                max = element.max_price;
+                score = element.score;
+                hours = element.hours;
+                img = element.logo;
+            }
+          });
+          this.$restoName.html(name);
+          this.$restoinfo.html('');
+          this.$restohour1.html('');
+          this.$restohour2.html('');
+          this.$restaurantScore.html('');
+          this.$restoinfo.append("<p id='add'>Address : "+add+"</p>");
+          this.$restoinfo.append("<p id='type'>Type of Food : "+type+"</p>");
+          this.$restoinfo.append("<p id='min'>Min Price : "+min+"</p>");
+          this.$restoinfo.append("<p id='max'>Max Price : "+max+"</p>");
+          this.$restohour1.append("<p>Hours: </p>");
+          this.$restoimg.attr("src", img);
+
+          for (let index = 0; index < 5; index++) {
+            if(index < score){
+
+                this.$restaurantScore.append("<i style='color:#F7B277;' class='fas fa-star fa-2x'></i>");
+
+            }else {
+                this.$restaurantScore.append("<i style='color: #333;' class='fas fa-star fa-2x'></i>")
+            }
+            
+        }
+
+        this.$restaurantScore.append("<h3 class='score'>"+score+"/5</h3>");
+
+        for (let index = 0; index < hours.length; index++) {
+            const element = hours[index];
+
+            let day = element.day;
+            let hour = element.hour;
+
+            if(index < 3){
+                this.$restohour1.append("<p class='"+day+"'>"+day+""+hour+"</p>");
+            }else {
+                this.$restohour2.append("<p class='"+day+"'>"+day+""+hour+"</p>");
+            }
+
+        }
+
+        setResto(name);
+
+        }
+
+      function loadRestaurants (){
+        restaurant.forEach(element => {
+          this.$restoList.append("<li ><a  onclick='restoClick(event.target.innerHTML)' class='list-resto' style='cursor:pointer;'>"+element.name+"</a></li>");
+        });
+      }
+
+      function getSelectedRestaurant (){
+        var result="";
+            $.ajax({
+              method: "GET",
+              url:"/home/getSelectedRestaurant",
+              async: false,  
+              success:function(data) {
+                result = data; 
+              }
+          });
+          return result;
+        }
+
+      function getResto() {
+            var result="";
+            $.ajax({
+              method: "GET",
+              url:"/home/getRestaurants",
+              async: false,  
+              success:function(data) {
+                result = data; 
+              }
+          });
+          return result;
+        }
+        function setResto(restoname) {
+            var result="";
+            $.ajax({
+              url:"/home/setSelectedRestaurant",
+              method: "GET",
+              async: false,
+              data: {name: restoname},
+              success:function(data) {
+                result = data;
+              }
+          });
+          return result;
+        }
+      
+
+  </script>
+</body>
+</html>
