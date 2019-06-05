@@ -71,11 +71,19 @@
   <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
   <script>
     let restaurant_list = getResto();
+    let item;
     let seleted_restaurant = getSelectedRestaurant();
     let menu = getRestaurantMenu();
     let appertizers = menu.appetizers;
     let mains = menu.mains;
     let desserts = menu.dessert;
+
+      let name;
+      let id;
+      let desc;
+      let price;
+
+
     this.$appertizersList = $('.app-list');
     this.$mainsList = $('.mains-list');
     this.$dessList = $('.dess-list');
@@ -83,6 +91,8 @@
     this.$foodName = $('.name');
     this.$foodPrice = $('.price');
     this.$foodDesc = $('.desc');
+
+    this.$cartbtn = $('.btn-cart');
     
 
     // <ul>
@@ -105,6 +115,34 @@
         
       });
 
+    this.$cartbtn.click(function () {
+      if(name === undefined || name === null){
+        console.log("Error");
+      }else {
+        
+        
+
+        console.log(name, price);
+        addToOrder(name, price);
+        let order = getOrder();
+        console.log(order);
+      }
+    })
+
+    function addToOrder( itemname, itemprice){
+      var result="";
+            $.ajax({
+              url:"/home/addToOrder",
+              method: "GET",
+              async: false,
+              data: {name: itemname, price: itemprice},
+              success:function(data) {
+                result = data;
+              }
+          });
+          return result;
+        }
+
     function loadMenu(){
       let name;
       appertizers.forEach(element => {
@@ -124,10 +162,8 @@
     }
 
     function itemClicked(foodname, foodid) {
-      let name = foodname;
-      let id = foodid;
-      let desc;
-      let price;
+        name= foodname;
+        id = foodid;
 
       if(id === "app"){
         appertizers.forEach(element => {
@@ -161,7 +197,6 @@
         this.$foodDesc.html(desc);
         this.$foodPrice.html(price);
       }
-
       
     }
     function getSelectedRestaurant (){
@@ -199,7 +234,18 @@
           });
           return result;
         }
-
+    function getOrder(){
+      var result="";
+            $.ajax({
+              method: "GET",
+              url:"/home/getOrder",
+              async: false,  
+              success:function(data) {
+                result = data; 
+              }
+          });
+          return result;
+    }
   </script>
 </body>
 </html>

@@ -22,7 +22,9 @@ server(
         get('/home/getMeals', home.getMeals),
         get('/home/getRestaurants', home.getRestaurants),
         get('/home/getSelectedRestaurant', home.getSelectedRestaurant),
-        get('/home/setSelectedRestaurant', home.setSelectedRestaurant)
+        get('/home/setSelectedRestaurant', home.setSelectedRestaurant),
+        get('/home/addToOrder', home.addToOrder),
+        get('/home/getOrder', home.getOrder)
     ]
 ).then(ctx => {
     console.log(`Server is running on port ${ctx.options.port}`);

@@ -34,3 +34,18 @@ exports.setSelectedRestaurant = async(context) => {
     let result = home.setSelecedRestaurant(context.query.name);
     return result;
 }
+
+// Adds to order
+exports.addToOrder = (context) =>{
+    let name = context.query.name;
+    let price = context.query.price;
+
+    let result = home.addToOrder(name, price);
+
+    return result;
+}
+
+exports.getOrder = () => {
+    let result = home.getOrder();
+    return json(result);
+}

@@ -7,6 +7,8 @@
 
 let selected_restaurant = "";
 
+let order = [];
+
 let citys = [
     "Toronto",
     "Ottawa",
@@ -209,6 +211,15 @@ exports.setSelecedRestaurant = (restoname) => {
     selected_restaurant = restoname;
     
     return true;
+}
+
+exports.addToOrder = (name, price) =>{
+    order.push({itemName: name, itemPrice: price });
+    return true;
+}
+
+exports.getOrder = () => {
+    return order;
 }
 
 
