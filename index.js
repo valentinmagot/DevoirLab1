@@ -18,6 +18,7 @@ server(
         get('/', ctx => render('home.html')),// homepage
         get('/restaurantList.html', ctx => render('restaurantList.html')),// restaurantpage
         get('/menuPage.html', ctx => render('menuPage.html')),// menupage
+        get('/orderSummary.html', ctx => render('orderSummary.html')),// summary page
         get('/home/getCitys', home.getCitys),
         get('/home/getMeals', home.getMeals),
         get('/home/getRestaurants', home.getRestaurants),

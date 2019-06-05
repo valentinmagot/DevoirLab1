@@ -86,7 +86,7 @@ let restaurants = [
         logo: "https://upload.wikimedia.org/wikipedia/en/c/c5/Nandos_logo.svg", 
         menu: {
             appetizers:[
-                {id: 0, name: "Garlic Bread", meal:"lunch, diner", description: "Stone-baked Portuguese roll smothered in garlic and herb spread.", price: "4.25$",  img: null },
+                {id: 0, name: "Garlic Bread", meal:"lunch, diner", description: "Stone-baked Portuguese roll smothered in garlic and herb spread.", price: "450.25$",  img: null },
                 {id: 1, name: "Hummus with PERi-PERi Drizzle", meal:"lunch, diner", description: "Tangy PERi-PERi infused oil poured over creamy hummus. Dig in with chunks of warm pita. ", price: "6.25", img: null },
                 {id: 2, name: "PERi-PERi Nuts", meal:"lunch, diner", description: "Almonds, cashews, macadamias - crunch with a punch. ", price: "4.25",  img: null},
             ],

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Order summary</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+   <link rel="stylesheet" href="/css/order.css" />
+</head>
+<body>
+      <div class="wrapper">
+        <!-- LOGO -->
+        <div class="logo-div"><a href="/"><img src="/css/img/logo.svg" alt=""></a></div>
+        <!-- CART -->
+        <div class="cart-div"><a href="/orderSummary.html"><i class="fas fa-shopping-cart fa-2x"></i></a></div>
+          <!-- Main content -->
+          <section class="main">
+              <div class="main-content">
+                  <!-- Title of the page -->
+                <div class="page-title">
+                    <h1>Order Summary!</h1>
+                </div>
+                <!-- List of Item Label -->
+                    <div class="items-label">
+                        <h3>List of items ordered</h3>
+                    </div>
+                    <!-- List of items -->
+                    <div class="list">
+                        <ul class="order-list">
+                            
+                        </ul>
+                    </div>
+                    <!-- Order Info -->
+                <div class="order-info">
+                        <p class="totalitems">Total number of items:</p>
+                        <p class="totalprice">Total price of items:</p>
+                        <p class="tvh">TVH:</p>
+                        <p class="total">Total Price:</p>
+                    </div>
+                <!-- Boutons -->
+                <div class="btn-div"><a href="/orderConfirmation.html" class="btn btn-chekout">Check out</a></div>
+            </div>
+          </section>
+  </div>
+  <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+  <script>
+      let order = [];
+      let totalprice = 0;
+      let totalitems = 0;
+      let tvh = 1.13;
+      let total = 0;
+      this.$orderList = $('.order-list');
+      this.$orderItems = $('.totalitems');
+      this.$orderTotal = $('.totalprice');
+      this.$orderTVH = $('.tvh');
+      this.$orderTotalPrice = $('.total');
+
+      $(document).ready(function(){
+        order = getOrder();
+        console.log(order);
+        loadOrder()
+      })
+
+      function loadOrder() {
+          order.forEach(element => {
+              let itemName = element.itemName;
+              let itemPrice = element.itemPrice;
+              totalitems++;
+              totalprice += parseFloat(itemPrice);
+              total = totalprice * tvh;
+              let str = `${itemName} ... ${itemPrice}`;
+              this.$orderList.append("<li><p>"+str+"</p></li>");
+              
+              
+          });
+
+              this.$orderItems.html("Total number of items: "+totalitems);
+              this.$orderTotal.html("Total price of items: "+totalprice.toFixed(2)+"$");
+              this.$orderTVH.html("TVH: "+ tvh);
+              this.$orderTotalPrice.html(`Total price: ${total.toFixed(2)}$`);
+              console.log(totalitems, totalprice.toFixed(2), total.toFixed(2));
+      }
+
+      
+      function getOrder(){
+      var result="";
+            $.ajax({
+              method: "GET",
+              url:"/home/getOrder",
+              async: false,  
+              success:function(data) {
+                result = data; 
+              }
+          });
+          return result;
+    }
+  </script>  
+</body>
+</html>
