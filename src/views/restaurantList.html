@@ -54,10 +54,12 @@
             </div>
           </section>
   </div>
+  <div id="snackbar">Some text...</div>
   <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
   <script >
 
       let restaurant = getResto();
+      let order = [];
       selectedRetaurant = getSelectedRestaurant();
       console.log(selectedRetaurant);
       // let selectedRetaurant = getSelectedRestaurant();
@@ -82,17 +84,29 @@
 
       $(document).ready(function(){
         loadRestaurants();
-        
+        order = getOrder();
       });
 
       
 
-      this.$restoA.click(function(){
-        restoClick(event.target.innerHTML)
-      });
+      function clicResto(rname){
+        console.log(order);
+        if(order.length >= 1){
+          snackbarFunction("Empty the cart before choosing an other restaurant");
+        }else {
+          restoClick(rname);
+        }
+      }
 
+      //Snackbar Function
+      function snackbarFunction(str) {
+                var snackbar = document.getElementById("snackbar");
+                snackbar.innerHTML = str;
+                snackbar.className = "show";
+                setTimeout(function(){ snackbar.className = snackbar.className.replace("show", ""); }, 3000);
+    }
       
-      function restoClick(rname, selectedRetaurant) {
+      function restoClick(rname) {
 
           this.$btnDiv.show();
           
@@ -164,7 +178,7 @@
 
       function loadRestaurants (){
         restaurant.forEach(element => {
-          this.$restoList.append("<li ><a  onclick='restoClick(event.target.innerHTML)' class='list-resto' style='cursor:pointer;'>"+element.name+"</a></li>");
+          this.$restoList.append("<li ><a  onclick='clicResto(event.target.innerHTML)' class='list-resto' style='cursor:pointer;'>"+element.name+"</a></li>");
         });
       }
 
@@ -180,7 +194,18 @@
           });
           return result;
         }
-
+      function getOrder(){
+        var result="";
+            $.ajax({
+              method: "GET",
+              url:"/home/getOrder",
+              async: false,  
+              success:function(data) {
+                result = data; 
+              }
+          });
+          return result;
+    }
       function getResto() {
             var result="";
             $.ajax({
