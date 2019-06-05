@@ -1,4 +1,4 @@
-#DevoirLab2
+# DevoirLab2
 
 # Run the project
 ## Locally with NodeJS
@@ -9,7 +9,7 @@ npm start
 ```
 In yout browswer type `localhost:8081`
 
-#DevoirLab1
+# DevoirLab1
 ## Introduction
 
 Pour ce premier devoir de laboratoire, vous devez créer un système simple et statique de commande de
