@@ -91,7 +91,9 @@
 
       function clicResto(rname){
         console.log(order);
-        if(order.length >= 1){
+        resto = getSelectedRestaurant();
+        console.log(resto);
+        if(order.length >= 1 && resto != rname){
           snackbarFunction("Empty the cart before choosing an other restaurant");
         }else {
           restoClick(rname);
