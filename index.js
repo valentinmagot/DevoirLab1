@@ -19,6 +19,7 @@ server(
         get('/restaurantList.html', ctx => render('restaurantList.html')),// restaurantpage
         get('/menuPage.html', ctx => render('menuPage.html')),// menupage
         get('/orderSummary.html', ctx => render('orderSummary.html')),// summary page
+        get('/orderConfirmation.html', ctx => render('orderConfirmation.html')),// confirmation page
         get('/home/getCitys', home.getCitys),
         get('/home/getMeals', home.getMeals),
         get('/home/getRestaurants', home.getRestaurants),
@@ -26,7 +27,9 @@ server(
         get('/home/setSelectedRestaurant', home.setSelectedRestaurant),
         get('/home/addToOrder', home.addToOrder),
         get('/home/getOrder', home.getOrder),
-        get('/home/emptyOrder', home.emptyOrder)
+        get('/home/emptyOrder', home.emptyOrder),
+        get('/home/getTotalPrice', home.getTotalPrice),
+        get('/home/setTotalPrice', home.setTotalPrice)
     ]
 ).then(ctx => {
     console.log(`Server is running on port ${ctx.options.port}`);

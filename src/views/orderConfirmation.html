@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Order Confirmation</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/confirmation.css" />
+</head>
+<body>
+      <div class="wrapper">
+        <!-- LOGO -->
+        <div class="logo-div"><a href="/"><img src="/css/img/logo.svg" alt=""></a></div>
+        <!-- CART -->
+        <div class="cart-div"><a href="/orderSummary.html"><i class="fas fa-shopping-cart fa-2x"></i></a></div>
+          <!-- Main content -->
+          <section class="main">
+              <div class="main-content">
+                  <!-- Title of the page -->
+                <div class="page-title">
+                    <h1>Thank you for your order!</h1>
+                </div>
+                <!-- List of Item Label -->
+                    <div class="info-label">
+                        <h3>Delivery Information</h3>
+                    </div>
+                    <div class="information">
+                        <form action="post" class="food-info">
+                                <label for="app" class="app-label" >Apartment</label>
+                                <input type="text" placeholder="Enter apartment number" class="app">
+
+                                <label for="streetname" class="street-label" >Street Name</label>
+                                <input type="text" placeholder="Enter street name..." class="street">
+
+                                <label for="city" class="city-label" >City</label>
+                                <!-- <input type="text" placeholder="Enter the city..." class="city" disabled> -->
+                                <p class="city">Chosen city</p>
+
+                                <label for="zipcode" class="zip-label" >Zip Code</label>
+                                <input type="text" placeholder="Enter zip code..." class="zip">
+                        </form>
+                        
+                    </div>
+                    <div class="payment-label">
+                        <h3>Payment Information</h3>
+                    </div>
+                    <!-- Payment Info -->
+                    <div class="payment-info">
+                        <form action="post" class="pay-info">
+        
+                                    <label for="totalprice" class="price-label" >Total Price</label>
+                                    <!-- <input type="text" placeholder="Total Price" class="totalprice"> -->
+                                    <p class="totalprice">00.00$</p>
+    
+
+            
+                                    <label for="cc" class="cc-label" >Credit Card Number</label>
+                                    <input type="text" placeholder="Enter Credit Card Number..." class="cc">
+    
+                            
+                    
+                                    <label for="cvc" class="cvc-label" >CVC</label>
+                                    <input type="text" placeholder="Enter CVC number..." class="cvc">
+    
+                
+                                    <label for="exp" class="exp-label" >Expiration Date</label>
+                                    <input type="text" placeholder="Enter expiration date..." class="exp">
+    
+                            
+                        </form>
+                    </div>
+                <!-- Boutons -->
+                <div class="btn-div"><button type="submit" class="btn btn-confirm">Place Order</button></div>
+            </div>
+          </section>
+  </div>
+  <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+  <script>
+      let totalprice = getTotalPrice();
+
+      console.log(totalprice);
+      function getTotalPrice(){
+      var result="";
+            $.ajax({
+              url:"/home/getTotalPrice",
+              method: "GET",
+              async: false,
+              success:function(data) {
+                result = data;
+              }
+          });
+          return result;
+    }
+      function setTotalPrice(totalprice) {
+            var result="";
+            $.ajax({
+              url:"/home/setTotalPrice",
+              method: "GET",
+              async: false,
+              data: {price: totalprice},
+              success:function(data) {
+                result = data;
+              }
+          });
+          return result;
+        }
+  </script>
+</body>
+</html>

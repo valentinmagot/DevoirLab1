@@ -45,12 +45,24 @@ exports.addToOrder = (context) =>{
     return result;
 }
 
+// Gets current order
 exports.getOrder = () => {
     let result = home.getOrder();
     return json(result);
 }
 
+// Deletes current order
 exports.emptyOrder = () => {
     let result = home.emptyOrder();
+    return result;
+}
+
+exports.getTotalPrice = async() => {
+    let result = home.getTotalPrice();
+    return json(result);
+}
+
+exports.setTotalPrice = async(context) => {
+    let result = home.setTotalPrice(context.query.price);
     return result;
 }

@@ -85,6 +85,9 @@
               this.$orderTVH.html("TVH: "+ tvh.toFixed(2));
               this.$orderTotalPrice.html(`Total price: ${total.toFixed(2)}$`);
               console.log(totalitems, totalprice.toFixed(2), total.toFixed(2));
+              setTotalPrice(total.toFixed(2));
+              let result = getTotalPrice();
+              console.log(result);
       }
 
       function emptyCart(){
@@ -124,6 +127,31 @@
           });
           return result;
     }
+    function getTotalPrice(){
+      var result="";
+            $.ajax({
+              url:"/home/getTotalPrice",
+              method: "GET",
+              async: false,
+              success:function(data) {
+                result = data;
+              }
+          });
+          return result;
+    }
+    function setTotalPrice(totalprice) {
+            var result="";
+            $.ajax({
+              url:"/home/setTotalPrice",
+              method: "GET",
+              async: false,
+              data: {price: totalprice},
+              success:function(data) {
+                result = data;
+              }
+          });
+          return result;
+        }
   </script>  
 </body>
 </html>

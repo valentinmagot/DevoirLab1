@@ -7,6 +7,12 @@
 
 let selected_restaurant = "";
 
+let selected_city= "";
+
+let selected_meal = "";
+
+let  totalPrice = "";
+
 let order = [];
 
 let citys = [
@@ -227,6 +233,36 @@ exports.emptyOrder = () => {
     return true;
 }
 
+exports.setTotalPrice = (price) => {
+    totalPrice = price;
 
+    return true;
+}
+
+exports.setSelectedMeal = (meal) => {
+    selected_meal = meal;
+
+    return true;
+}
+
+exports.setSelectedCity = (city) => {
+    selected_city = city;
+
+    return true;
+}
+
+
+
+exports.getTotalPrice = () => {
+    return totalPrice;
+}
+
+exports.getSelectedCity = () => {
+    return selected_city;
+}
+
+exports.getSelectedMeal= () => {
+    return selected_meal;
+}
 
 

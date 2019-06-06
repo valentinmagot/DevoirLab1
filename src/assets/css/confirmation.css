@@ -1,0 +1,277 @@
+/* Variables */
+:root {
+    --primary: #ddd;
+    --dark: #333;
+    --light: #fff;
+    --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+    --shadow2: 0 1px 5px rgba(0, 0, 0, 0.8);
+    --extralight: rgba(255, 255, 255, 0.5);
+    --bg: #261F1F;
+    --btnbg: #F7B277;
+    --btnbghover: #FCD0AB;
+}
+
+html {
+   box-sizing: border-box;
+   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif 
+}
+
+body {
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(./img/clay-banks-1554997-unsplash.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* CSS-Grid */
+.wrapper {
+    height: 100vh;
+    display: grid;
+    grid-template-rows:  [row1-start] 10px  [row2-start] 25% [row2-end] auto [end-row] 10px;
+    grid-template-columns:  [col1-start] 40px  [col2-start] 10% [col3-start] 5% [col4-start] auto [col4-end] 5% [col5-start] 10% [end-col] 40px;
+}
+
+/* Logo */
+.logo-div {
+    grid-column-start: col1-start;
+    grid-column-end: col4-start;
+    grid-row-start: row2-start;
+    grid-row-end: row2-end;
+    text-align: center;
+}
+/* Cart */
+.cart-div {
+    grid-column-start: col5-start;
+    grid-column-end: end-col;
+    grid-row-start: row2-start;
+    grid-row-end: row2-end;
+    text-align: center;
+}
+
+.cart-div a {
+    color: var(--dark);
+}
+
+/* Main content */
+.main {
+    width: 100%;
+    grid-row-start: row2-start;
+    grid-column-start: col4-start;
+    grid-row-end: end-row;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    background: rgba(38, 31, 31, 0.75);
+    box-shadow: var(--shadow2)
+  
+}
+
+.main-content {
+    height: 100%;
+    display: grid;
+    grid-template-columns: [col1-start] 10% [col2-start] auto [col2-end] 10%;
+    grid-template-rows: [row1-start] 3% [row2-start] 10% [row3-start] 5% [row4-start] 30% [row5-start] 5% [row5-end]auto [row6-start] 10% [row6-end] 3%;
+    color: var(--light);
+}
+
+/* Boutons */
+.btn{
+    text-decoration: none;
+    background: var(--btnbg);
+    color: var(--light);
+    text-align: center;
+    padding: 0.6rem 1.3rem;
+    border-radius: 50px;
+    border: #fff 2px solid;
+    font-size: 16px;
+    
+}
+
+.btn-confirm:hover,
+.btn-confirm:focus {
+    cursor: pointer;
+    background: var(--btnbghover);
+
+}
+
+/* Buttons Div */
+.btn-div {
+
+    grid-column-start: col2-start;
+    grid-column-end: col2-end;
+    grid-row-start: row6-start;
+    grid-row-end: row6-end;
+    margin: auto;
+
+}
+
+/* Title of the page */
+.page-title {
+    grid-column-start: col2-start;
+    grid-column-end: col2-end;
+    grid-row-start: row2-start;
+    grid-row-end: row3-start;
+    text-align: center;
+    color: var(--light);
+}
+
+.page-title h1 {
+    margin: 0;
+}
+
+/* Items Label */
+.info-label{
+    grid-column-start: col2-start;
+    grid-column-end: col2-end;
+    grid-row-start: row3-start;
+    grid-row-end: row4-start;
+    text-align: center;
+}
+
+.info-label h3{
+    margin: 0;
+    font-family: "Times New Roman";
+    color: var(--light);
+}
+
+/* Payment */
+.payment-label {
+    
+    grid-column-start: col2-start;
+    grid-column-end: col2-end;
+    grid-row-start: row5-start;
+    grid-row-end: row6-start;
+    text-align: center;
+}
+
+.payment-label h3{
+    margin: 0;
+    font-family: "Times New Roman";
+    color: var(--light);
+
+}
+
+/* Payment info */
+.payment-info {
+    max-height: 100%;
+    grid-column-start: col2-start;
+    grid-column-end: col2-end;
+    grid-row-start: row5-end;
+    grid-row-end: row6-start;
+    text-align: left;
+    overflow: auto;
+}
+
+.pay-info {
+
+    display: grid;
+    grid-template-columns: [col1] 25% [col2] 75%;
+    grid-template-rows: [row1] 25% [row2] 25% [row3] 25% [row4] 25%;
+    
+}
+
+.pay-info input::placeholder {
+    color: var(--dark);
+}
+
+.price-label {
+    font-size: 12px;
+    margin: 5px;
+}
+.totalprice {
+    text-align: right;
+    margin: 5px;
+}
+.cc-label {
+    font-size: 12px;
+    margin: 5px;
+}
+
+.cc {
+    background: var(--light);
+    padding: 4px;
+    color: black;
+    border-radius: 5px;
+    border: #fff 0.1em solid;
+    margin: 5px;
+}
+
+.exp-label {
+    font-size: 12px;
+    margin: 5px;
+}
+
+.exp {
+    background: var(--light);
+    padding: 4px;
+    color: black;
+    border-radius: 5px;
+    border: #fff 0.1em solid;
+    margin: 5px;
+}
+
+
+.cvc {
+    background: var(--light);
+    padding: 4px;
+    color: black;
+    border-radius: 5px;
+    border: #fff 0.1em solid;
+    margin: 5px;
+}
+
+.cvc-label {
+    font-size: 12px;
+    margin: 5px;
+}
+
+/* Delivery information */
+.information {
+    grid-column-start: col2-start;
+    grid-column-end: col2-end;
+    grid-row-start: row4-start;
+    grid-row-end: row5-start;
+}
+
+.food-info {
+    display: grid;
+    grid-template-columns: [col1] 25% [col2] 75%;
+    grid-template-rows: [row1] 20% [row2] 20% [row3] 20% [row4] 20% [row5];
+}
+
+.food-info label {
+    grid-column-start: col1;
+    grid-column-end: col2;
+    float: left;
+    margin: 5px;
+    font-size: 12px;
+    
+}
+ 
+.food-info input {
+    float: right;
+    width: 100%;
+    min-width: 100px;
+    background: var(--light);
+    padding: 6px;
+    color: black;
+    border-radius: 5px;
+    border: #fff 0.1em solid;
+    margin: 5px;
+}
+
+.food-info p {
+    text-align: right;
+    float: right;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.food-info input::placeholder {
+    color: var(--dark);
+}
+
+ 
