@@ -96,7 +96,7 @@ let restaurants = [
             appetizers:[
                 {id: 0, name: "Garlic Bread", meal:"lunch, diner", description: "Stone-baked Portuguese roll smothered in garlic and herb spread.", price: "5.25$",  img: null },
                 {id: 1, name: "Hummus with PERi-PERi Drizzle", meal:"lunch, diner", description: "Tangy PERi-PERi infused oil poured over creamy hummus. Dig in with chunks of warm pita. ", price: "6.25$", img: null },
-                {id: 2, name: "PERi-PERi Nuts", meal:"lunch, diner", description: "Almonds, cashews, macadamias - crunch with a punch. ", price: "4.25",  img: null},
+                {id: 2, name: "PERi-PERi Nuts", meal:"lunch, diner", description: "Almonds, cashews, macadamias - crunch with a punch. ", price: "4.25$",  img: null},
             ],
             mains: [
                 {id: 0, name: "1/2 Chicken", meal:"lunch, diner", description: "First time at Nando's? Look no further than our signature 1/2 chicken. ", price: "14.45$",  img: null },
@@ -134,13 +134,13 @@ let restaurants = [
         menu: {
             appetizers:[
                 {id: 0, name: "Fired Cheese", meal:"lunch, diner", description: "Stone-baked Portuguese roll smothered in garlic and herb spread.", price: "4.25$",  img: null },
-                {id: 1, name: "Chicken Tenders", meal:"lunch, diner", description: "Chicken tenders are the narrow, strip of meat loosely attached to the underside of chicken breasts.", price: "6.25", img: null },
-                {id: 2, name: "Chicken Wings", meal:"lunch, diner", description: "From hot Buffalo wings to milder versions, find dozens of chicken wing recipes. ", price: "4.25",  img: null},
+                {id: 1, name: "Chicken Tenders", meal:"lunch, diner", description: "Chicken tenders are the narrow, strip of meat loosely attached to the underside of chicken breasts.", price: "6.25$", img: null },
+                {id: 2, name: "Chicken Wings", meal:"lunch, diner", description: "From hot Buffalo wings to milder versions, find dozens of chicken wing recipes. ", price: "4.25$",  img: null},
             ],
             mains: [
                 {id: 0, name: "Deluxe pizza", meal:"lunch, diner", description: "This pizza features the hearty flavours of our famous pepperoni and bacon paired with the freshness of mushrooms ", price: "14.45$",  img: null },
                 {id: 1, name: 'Spinash pizza', meal:"lunch, diner", description: "Soft crust pizza brushed with herbed garlic, layered with spinach, mozzarella, Parmesan, and mushrooms.", price: "16.85$", img: null },
-                {id: 2, name: "veggie lovers", meal:"lunch, diner", description: "Veggies. Garden favourites. Veggies just the way you like them: Crisp, full of nutrients, and on pizza. Roma Tomatoes.", price: "11.85", img: null},
+                {id: 2, name: "veggie lovers", meal:"lunch, diner", description: "Veggies. Garden favourites. Veggies just the way you like them: Crisp, full of nutrients, and on pizza. Roma Tomatoes.", price: "11.85$", img: null},
                 {id: 3, name: "Meat Lovers", meal:"lunch, diner", description: "Grilled chicken breast served with crispy leaf lettuce, tomato and Kafta on a stone-baked pizza crust.", price: "11.25$", img: null },
                 
             ],
@@ -178,7 +178,7 @@ let restaurants = [
             mains: [
                 {id: 0, name: "1/2 The KBBQ", meal:"lunch, diner", description: "5 oz bulgogi beef patty, fried egg, oi muchim, and kimchi mayo.", price: "14.45$",  img: null },
                 {id: 1, name: 'The Beyond BFF', meal:"lunch, diner", description: "4 oz Beyond Meat vegan patty, tomato, lettuce, pickles, and Texas BBQ sauce.", price: "11.85$", img: null },
-                {id: 2, name: "The El Fuego", meal:"lunch, diner", description: "5 oz beef patty, ghost pepper pimento cheese, jalapeno relish, and chipotle mayo.", price: "11.85", img: null},
+                {id: 2, name: "The El Fuego", meal:"lunch, diner", description: "5 oz beef patty, ghost pepper pimento cheese, jalapeno relish, and chipotle mayo.", price: "11.85$", img: null},
                 {id: 3, name: "The Melt", meal:"lunch, diner", description: "5 oz beef patty, swiss cheese, American cheese, beef bacon, and Texas BBQ sauce.", price: "11.25$", img: null },
                 {id: 4, name: 'Chicken Wrap', meal:"lunch, diner", description: "Buttermilk sriracha fried chicken, swiss cheese, lettuce, tomato, and garlic aioli.", price: "11.25$", img: null },
             ],
