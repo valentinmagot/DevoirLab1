@@ -76,3 +76,13 @@ exports.getOrdered = async() => {
     let result = home.getOrdered();
     return json(result);
 }
+
+exports.setSelectedCity = async(context) => {
+    let result = home.setSelectedCity(context.query.name)
+    return result;
+}
+
+exports.getSelectedCity = async () => {
+    let result = home.getSelectedCity();
+    return json(result);
+}

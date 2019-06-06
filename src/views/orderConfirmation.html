@@ -73,8 +73,10 @@
   <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
   <script>
       let totalprice = getTotalPrice();
+      let city = getSelectedCity();
       this.$orderTotalPrice = $('.totalprice');
-      console.log(ordered);
+      this.$chosencity = $('.city')
+    
       $(document).ready(function(){
           totalprice = getTotalPrice();
           console.log(totalprice);
@@ -82,12 +84,45 @@
       })
 
       $('.food-info').submit(function () {
-          snackbarFunction("Order placed")
+          snackbarFunction("Order placed");
+          
       })
 
       function loadOrder() {
           this.$orderTotalPrice.html(`${totalprice}$`);
+          if (city === null || city === "Please Choose a City..."){
+            this.$chosencity.html(`Chose a city on home page`);
+          }else {
+            this.$chosencity.html(`${city}`);
+          }
+          
       }
+
+      function emptyCart(){
+          order = [];
+          totalprice = 0;
+          totalitems = 0;
+          tvh = 1.13;
+          total = 0;
+          let result = emptyOrder();
+          console.log(result);
+          order = getOrder();
+          console.log(order);
+          loadOrder();
+      }
+
+      function emptyOrder(){
+      var result="";
+            $.ajax({
+              method: "GET",
+              url:"/home/emptyOrder",
+              async: false,  
+              success:function(data) {
+                result = data; 
+              }
+          });
+          return result;
+    }
 
       function getTotalPrice(){
       var result="";
@@ -133,6 +168,18 @@
               method: "GET",
               async: false,
               data: {value: boovalue},
+              success:function(data) {
+                result = data;
+              }
+          });
+          return result;
+      }
+      function getSelectedCity (){
+        var result="";
+            $.ajax({
+              url:"/home/getSelectedCity",
+              method: "GET",
+              async: false,
               success:function(data) {
                 result = data;
               }

@@ -22,7 +22,7 @@
                           <label for="city">City</label>
                           <label for="meal">Meal</label>
                           <div class="cityselect">
-                            <select  class="cityselecter" name="city" id="city">
+                            <select  class="cityselecter" onchange="setSelectedCity(this.value)"name="city" id="city">
                               <option value="" >Please Choose a City...</option>
                           </select>
                           </div>
@@ -49,6 +49,7 @@
   <script>
 
        let $cityselect, $mealselect;
+
  
 
       $(document).ready(function(){
@@ -74,7 +75,33 @@
           })
 
         });
-
+        function getSelectedCity (){
+        var result="";
+            $.ajax({
+              url:"/home/getSelectedCity",
+              method: "GET",
+              async: false,
+              success:function(data) {
+                result = data;
+              }
+          });
+          return result;
+      }
+      function setSelectedCity (restoname){
+        var result="";
+            $.ajax({
+              url:"/home/setSelectedCity",
+              method: "GET",
+              async: false,
+              data: {name: restoname},
+              success:function(data) {
+                result = data;
+              }
+          });
+          console.log(getSelectedCity()); 
+          return result;
+          
+      }
     </script>
     
 </body>
