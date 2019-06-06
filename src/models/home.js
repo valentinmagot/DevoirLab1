@@ -15,6 +15,8 @@ let  totalPrice = "";
 
 let order = [];
 
+let ordered;
+
 let citys = [
     "Toronto",
     "Ottawa",
@@ -263,6 +265,16 @@ exports.getSelectedCity = () => {
 
 exports.getSelectedMeal= () => {
     return selected_meal;
+}
+
+exports.setOrdered = (value) => {
+    ordered = value;
+
+    return true;
+}
+
+exports.getOrdered = () => {
+    return ordered;
 }
 
 

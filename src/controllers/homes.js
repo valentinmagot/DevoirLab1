@@ -66,3 +66,13 @@ exports.setTotalPrice = async(context) => {
     let result = home.setTotalPrice(context.query.price);
     return result;
 }
+
+exports.setOrdered = async(context) => {
+    let result = home.setOrdered(context.query.value);
+    return result;
+}
+
+exports.getOrdered = async() => {
+    let result = home.getOrdered();
+    return json(result);
+}
