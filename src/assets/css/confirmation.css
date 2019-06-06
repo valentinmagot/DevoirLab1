@@ -256,7 +256,7 @@ body {
     width: 100%;
     min-width: 100px;
     background: var(--light);
-    padding: 6px;
+    //padding: 6px;
     color: black;
     border-radius: 5px;
     border: #fff 0.1em solid;
