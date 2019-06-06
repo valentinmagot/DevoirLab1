@@ -49,7 +49,7 @@
 
 
                             <label for="cvc" class="cvc-label" >CVC</label>
-                            <input type="text" placeholder="Enter CVC number..." class="cvc" title="CVC 3 numbers" pattern="[0-9]{3}" required="required">
+                            <input type="text" placeholder="Enter CVC number..." class="cvc" title="CVC 3 numbers" pattern="[0-9]{3}" maxlength="3" required="required">
 
 
                             <label for="exp" class="exp-label" >Expiration Date(MM/YY)</label>
@@ -108,7 +108,7 @@
           console.log(result);
           order = getOrder();
           console.log(order);
-          loadOrder();
+          // loadOrder();
       }
 
       function emptyOrder(){
