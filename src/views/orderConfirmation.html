@@ -90,7 +90,7 @@
 
       function loadOrder() {
           this.$orderTotalPrice.html(`${totalprice}$`);
-          if (city === null || city === "Please Choose a City..."){
+          if (city === null || city === "Please Choose a City..." ||city === "" ){
             this.$chosencity.html(`Chose a city on home page`);
           }else {
             this.$chosencity.html(`${city}`);

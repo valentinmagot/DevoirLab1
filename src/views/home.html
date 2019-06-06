@@ -40,16 +40,42 @@
                     <h1>Main title<br>of the<br>web site</h1>
                     <p>Description of the website used to order food from restaurants</p>
                     <!-- Boutons -->
-                    <div><a href="./restaurantList.html" class="btn btn-restaurant">Restaurant List</a></div>
+                    <div><a id="red"  onclick="verify()" class="btn btn-restaurant">Restaurant List</a></div>
                   </div>
             </div>
           </section>
   </div>
+  <div id="snackbar">Some text...</div>
   <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
   <script>
 
        let $cityselect, $mealselect;
 
+       var a = document.getElementById("red");
+
+       let ville = getSelectedCity();
+
+       console.log(ville);
+
+       //Snackbar Function
+    function snackbarFunction(str) {
+                var snackbar = document.getElementById("snackbar");
+                snackbar.innerHTML = str;
+                snackbar.className = "show";
+                setTimeout(function(){ snackbar.className = snackbar.className.replace("show", ""); }, 3000);
+        }
+
+       a.addEventListener('click', function(){
+        let city = getSelectedCity();
+          if(city === ""){
+            snackbarFunction("Please select a city");
+          }else{
+            location.href = "/restaurantList.html"
+          }
+       })
+       function verify(){
+         
+       }
  
 
       $(document).ready(function(){

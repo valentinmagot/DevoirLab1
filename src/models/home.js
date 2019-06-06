@@ -124,8 +124,8 @@ let restaurants = [
         hours: [
             {day:"Lundi: ", hour:"11:00 am-11:00 pm"}, 
             {day:"Mardi: ", hour:"11:00 am-11:00 pm"}, 
-            {day:"Mercredi: ", hour:"11:00 am-11:00 pm"}, 
-            {day:"Jeudi: ", hour:"null"}, 
+            {day:"Mercredi: ", hour:""}, 
+            {day:"Jeudi: ", hour:""}, 
             {day:"Vendredi: ", hour:"11:00 am-12:00 am"}, 
             {day:"Samedi: ", hour:"11:00 am-12:00 am"}, 
             {day:"Dimanche: ", hour:"11:00 am-11:00 pm"}
@@ -163,8 +163,8 @@ let restaurants = [
         hours: [
             {day:"Lundi: ", hour:"11:00 am-11:00 pm"}, 
             {day:"Mardi: ", hour:"11:00 am-11:00 pm"}, 
-            {day:"Mercredi: ", hour:"11:00 am-11:00 pm"}, 
-            {day:"Jeudi: ", hour:"null"}, 
+            {day:"Mercredi: ", hour:""}, 
+            {day:"Jeudi: ", hour:"11:00 am-11:00 pm"}, 
             {day:"Vendredi: ", hour:"11:00 am-12:00 am"}, 
             {day:"Samedi: ", hour:"11:00 am-12:00 am"}, 
             {day:"Dimanche: ", hour:"11:00 am-11:00 pm"}
