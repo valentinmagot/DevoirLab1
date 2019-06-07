@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Restaurant Menu</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+   
+    <link rel="stylesheet" href="/css/menu.css" />
+</head>
+<body>
+      <div class="wrapper">
+        <!-- LOGO -->
+        <div class="logo-div"><a href="/"><img src="/css/img/logo.svg" alt=""></a></div>
+        <!-- CART -->
+        <div class="cart-div"><a href="./orderSummary.html"><i class="fas fa-shopping-cart fa-2x"></i></a></div>
+         <!-- Restaurant List -->
+         <section class="list">
+                <div class="appertizers-content">
+                    <h4 style="margin:0;">Appertizers</h4>
+                    <ul class="app-list">
+                       
+                    </ul>
+                </div>
+                <div class="maincourse-content">
+                        <h4 style="margin:0;">Main Course</h4>
+                        <ul class="mains-list">
+                          
+                        </ul>
+                    </div>
+                    <div class="dessert-content">
+                            <h4 style="margin:0;">Dessert</h4>
+                            <ul class="dess-list">
+                               
+                            </ul>
+                        </div>
+            </section>
+          <!-- Main content -->
+          <section class="main">
+            <div class="main-content">
+                    <div class="meal-name">
+                            <h1 class='name'>Pick a meal</h1>
+                    </div>
+                    <!-- <div class="meal-img"><img src="" alt=""></div> -->
+                    <div class="start"><i style="color:#F7B277;" class="fas fa-hand-point-left fa-4x"></i></div>
+                    <div class="meal-des">
+                        
+
+                        <h4 class='desc'>Click on the food name that<br> you wish to order</h4>
+                    </div>
+                    <div class="meal-price">
+                        <h3 class="price"></h3>
+                    </div>
+                    <!-- Boutons -->
+                    <div class="btn-div" hidden><a style="cursor: pointer;" class="btn btn-cart">Add to cart</a></div>
+                  
+            </div>
+          </section>
+  </div>
+  <div id="snackbar">Some text...</div>
+  <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+  <script>
+    let restaurant_list = getResto();
+    let item;
+    let seleted_restaurant = getSelectedRestaurant();
+    let menu = getRestaurantMenu();
+    let appertizers = menu.appetizers;
+    let mains = menu.mains;
+    let desserts = menu.dessert;
+
+    let name;
+    let id;
+    let desc;
+    let price;
+
+
+    this.$appertizersList = $('.app-list');
+    this.$mainsList = $('.mains-list');
+    this.$dessList = $('.dess-list');
+
+    this.$foodName = $('.name');
+    this.$foodPrice = $('.price');
+    this.$foodDesc = $('.desc');
+
+    this.$divbtn = $('.btn-div');
+    this.$cartbtn = $('.btn-cart');
+
+    this.$startIcon = $('.start');
+    this.$desDiv = $('.meal-des')
+    
+    
+
+    console.log(restaurant_list);
+    console.log(menu);
+    console.log(appertizers);
+    console.log(mains);
+    console.log(desserts);
+    
+
+    $(document).ready(function(){
+      loadMenu();
+        
+      });
+
+    this.$cartbtn.click(function () {
+      if(name === undefined || name === null){
+        snackbarFunction('Select an item');
+      }else {
+        
+        
+
+        console.log(name, price);
+        let result = addToOrder(name, price)? snackbarFunction("Item Added to cart") : snackbarFunction("Error occured");
+        let order = getOrder();
+        console.log(order);
+      }
+    })
+
+    //Snackbar Function
+    function snackbarFunction(str) {
+                var snackbar = document.getElementById("snackbar");
+                snackbar.innerHTML = str;
+                snackbar.className = "show";
+                setTimeout(function(){ snackbar.className = snackbar.className.replace("show", ""); }, 3000);
+        }
+
+    function addToOrder( itemname, itemprice){
+      var result="";
+            $.ajax({
+              url:"/home/addToOrder",
+              method: "GET",
+              async: false,
+              data: {name: itemname, price: itemprice},
+              success:function(data) {
+                result = data;
+              }
+          });
+          return result;
+        }
+
+    function loadMenu(){
+      let name;
+      appertizers.forEach(element => {
+        name = element.name;
+        this.$appertizersList.append("<li><a id='app' onclick='itemClicked(event.target.innerHTML, event.target.id)' style='cursor:pointer;'>"+name+"</a></li>")
+      });
+
+      mains.forEach(element => {
+        name = element.name;
+        this.$mainsList.append("<li><a id='main' onclick='itemClicked(event.target.innerHTML, event.target.id)' style='cursor:pointer;'>"+name+"</a></li>")
+      });
+
+      desserts.forEach(element => {
+        name = element.name;
+        this.$dessList.append("<li><a id='dess' onclick='itemClicked(event.target.innerHTML, event.target.id)' style='cursor:pointer;'>"+name+"</a></li>")
+      });
+    }
+    
+    function itemClicked(foodname, foodid) {
+        console.log(this.$startIcon);
+        this.$divbtn.show();
+        this.$startIcon.html('');
+        name= foodname;
+        id = foodid;
+
+      if(id === "app"){
+        appertizers.forEach(element => {
+          if(element.name === name){
+            desc = element.description;
+            price =element.price;
+          }
+        });
+        this.$foodName.html(name);
+        this.$foodDesc.html(desc);
+        this.$foodPrice.html(price);
+
+      }else if(id === "main"){
+        mains.forEach(element => {
+          if(element.name === name){
+            desc = element.description;
+            price =element.price;
+          }
+        });
+        this.$foodName.html(name);
+        this.$foodDesc.html(desc);
+        this.$foodPrice.html(price);
+      }else if(id === "dess" ){
+        desserts.forEach(element => {
+          if(element.name === name){
+            desc = element.description;
+            price =element.price;
+          }
+        });
+        this.$foodName.html(name);
+        this.$foodDesc.html(desc);
+        this.$foodPrice.html(price);
+      }
+      
+    }
+    function getSelectedRestaurant (){
+        var result="";
+            $.ajax({
+              method: "GET",
+              url:"/home/getSelectedRestaurant",
+              async: false,  
+              success:function(data) {
+                result = data; 
+              }
+          });
+          return result;
+        }
+    function getRestaurantMenu (){
+      let menu = [];
+      console.log(seleted_restaurant);
+        restaurant_list.forEach(element => {
+          if(element.name === seleted_restaurant){
+            menu = element.menu;
+          }
+        });
+
+        return menu;
+    }
+    function getResto() {
+            var result="";
+            $.ajax({
+              method: "GET",
+              url:"/home/getRestaurants",
+              async: false,  
+              success:function(data) {
+                result = data; 
+              }
+          });
+          return result;
+        }
+    function getOrder(){
+      var result="";
+            $.ajax({
+              method: "GET",
+              url:"/home/getOrder",
+              async: false,  
+              success:function(data) {
+                result = data; 
+              }
+          });
+          return result;
+    }
+  </script>
+</body>
+</html>
